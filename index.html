@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1桁の足し算クイズ（全10問）</title>
+  <title>Single digit addition</title>
   <style>
     body {
       font-family: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", sans-serif;
@@ -12,6 +12,12 @@
       padding: 20px;
       text-align: center;
     }
+ 	 /* 画面幅480px以下（スマホ）の場合 */
+ 	 @media (max-width: 480px) {
+ 	   .title {
+ 	     font-size: 20px; /* 小さくして1行に収める */
+ 	   }
+  }
 
     h1 {
       font-size: 2.2em;
@@ -72,6 +78,50 @@
   <button onclick="checkAnswers()">Check Answers</button>
   <div class="result" id="resultArea"></div>
   <button id="restartButton" onclick="location.reload()">Play Again</button>
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="footer-inner">
+  <div class="company"> Hanjuku Lab.</div>
+    <div class="meta">Version 1.0 &nbsp;|&nbsp; © 2025 Hanjuku Lab.</div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    color: #6b6b6b;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;          /* 小さめサイズ */
+    padding: 10px 12px;
+    background: transparent;  /* 軽くする */
+  }
+
+  .footer-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    align-items: center;
+    justify-content: center; /* 中央寄せ */
+  }
+
+  .company {
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: none;    /* 必要なら uppercase に */
+  }
+
+  .meta {
+    color: #8a8a8a;
+    font-size: 12px;
+  }
+
+  /* 小さい画面では縦に並べる */
+  @media (max-width:480px){
+    .footer-inner{ flex-direction:column; gap:4px; padding:6px 0; }
+  }
+</style>
+
 
   <script>
     const totalQuestions = 10;
