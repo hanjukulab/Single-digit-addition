@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1桁の足し算クイズ（全10問）</title>
+  <title>Single-Digit Addition (10 Questions)</title>
   <style>
     body {
       font-family: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", sans-serif;
@@ -67,11 +67,11 @@
   </style>
 </head>
 <body>
-  <h1>1桁の足し算クイズ（全10問）</h1>
+  <h1>Single-Digit Addition (10 Questions)</h1>
   <form id="quizForm"></form>
-  <button onclick="checkAnswers()">こたえあわせ</button>
+  <button onclick="checkAnswers()">Check Answers</button>
   <div class="result" id="resultArea"></div>
-  <button id="restartButton" onclick="location.reload()">もういちど あそぶ</button>
+  <button id="restartButton" onclick="location.reload()">Play Again</button>
 
   <script>
     const totalQuestions = 10;
@@ -111,14 +111,14 @@
         const correct = questions[i].answer;
 
         if (parseInt(userInput) === correct) {
-          resultText += `Q${i + 1}：せいかい！🎉\n`;
+          resultText += `Q${i + 1}：That's right！🎉\n`;
           correctCount++;
         } else {
-          resultText += `Q${i + 1}：ざんねん 😢（せいかいは ${correct}）\n`;
+          resultText += `Q${i + 1}：Oops 😢（The correct answer is ${correct}）\n`;
         }
       }
 
-      resultText += `\n🎯 せいかいすう：${correctCount} / ${totalQuestions}`;
+      resultText += `\n🎯 Total Correct：${correctCount} / ${totalQuestions}`;
       document.getElementById("resultArea").textContent = resultText;
       document.getElementById("restartButton").style.display = "inline-block";
     }
@@ -128,3 +128,4 @@
   </script>
 </body>
 </html>
+
