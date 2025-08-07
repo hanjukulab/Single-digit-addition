@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Single-Digit Addition (10 Questions)</title>
+  <title>1桁の足し算クイズ（全10問）</title>
   <style>
     body {
       font-family: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", sans-serif;
@@ -67,7 +67,7 @@
   </style>
 </head>
 <body>
-  <h1>Single-Digit Addition (10 Questions)</h1>
+  <h1>Single digit addition(10 Question)</h1>
   <form id="quizForm"></form>
   <button onclick="checkAnswers()">Check Answers</button>
   <div class="result" id="resultArea"></div>
@@ -95,67 +95,7 @@
         div.className = 'question';
         div.innerHTML = `
           Q${i + 1}. ${a} + ${b} = 
-          <input type="tel" inputmode="numeric" pattern="[0-9]*" id="q${i}" placeholder="Answer">`;
-        form.appendChild(div);
-      }
-    }
-
-    // 答えをチェック
-    function checkAnswers() {
-      let resultText = "";
-      let correctCount = 0;
-
-      for (let i = 0; i < totalQuestions; i++) {
-        const userInput = document.getElementById(`q${i}`).value.trim();
-        const correct = questions[i].answer;
-
-        if (parseInt(userInput) === correct) {
-          resultText += `Q${i + 1}：That's right！🎉\n`;
-          correctCount++;
-        } else {
-          resultText += `Q${i + 1}：Oops 😢 }
-
-    #restartButton {
-      display: none;
-      margin-top: 20px;
-      background-color: #4CAF50;
-    }
-
-    #restartButton:hover {
-      background-color: #45A049;
-    }
-  </style>
-</head>
-<body>
-  <h1>Single-Digit Addition (10 Questions)</h1>
-  <form id="quizForm"></form>
-  <button onclick="checkAnswers()">Check Answers</button>
-  <div class="result" id="resultArea"></div>
-  <button id="restartButton" onclick="location.reload()">Play Again</button>
-
-  <script>
-    const totalQuestions = 10;
-    const questions = [];
-
-    // 問題を作成
-    function generateQuestions() {
-      const form = document.getElementById('quizForm');
-      form.innerHTML = ""; // 初期化
-
-      for (let i = 0; i < totalQuestions; i++) {
-        let a, b;
-        do {
-          a = Math.floor(Math.random() * 9) + 1; // 1〜9
-          b = Math.floor(Math.random() * 9) + 1;
-        } while (a + b > 9); // 答えが1桁になるまで繰り返す
-
-        questions[i] = { a, b, answer: a + b };
-
-        const div = document.createElement('div');
-        div.className = 'question';
-        div.innerHTML = `
-          Q${i + 1}. ${a} + ${b} = 
-          <input type="tel" inputmode="numeric" pattern="[0-9]*" id="q${i}" placeholder="Answer"  font-size: 1em>
+          <input type="tel" inputmode="numeric" pattern="[0-9]*" id="q${i}" placeholder="Answer" style="font-size:1em">
         `;
         form.appendChild(div);
       }
@@ -171,14 +111,14 @@
         const correct = questions[i].answer;
 
         if (parseInt(userInput) === correct) {
-          resultText += `Q${i + 1}：That's right！🎉\n`;
+          resultText += `Q${i + 1}：Collect！🎉\n`;
           correctCount++;
         } else {
-          resultText += `Q${i + 1}：Oops 😒（The correct answer is ${correct}）\n`;
+          resultText += `Q${i + 1}：Oops 😢（Collect Answer is ${correct}）\n`;
         }
       }
 
-      resultText += `\n🎯 Total Correct：${correctCount} / ${totalQuestions}`;
+      resultText += `\n🎯 Score：${correctCount} / ${totalQuestions}`;
       document.getElementById("resultArea").textContent = resultText;
       document.getElementById("restartButton").style.display = "inline-block";
     }
@@ -188,12 +128,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
